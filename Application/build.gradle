@@ -2,14 +2,17 @@
 buildscript {
     repositories {
         jcenter()
+        mavenLocal()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath "jp.leafytree.gradle:gradle-android-scala-plugin:2.2.1-SNAPSHOT"
     }
 }
 
 apply plugin: 'com.android.application'
+apply plugin: "jp.leafytree.android-scala"
 
 repositories {
     jcenter()
@@ -32,7 +35,7 @@ List<String> dirs = [
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         minSdkVersion 18
@@ -47,7 +50,7 @@ android {
     sourceSets {
         main {
             dirs.each { dir ->
-                java.srcDirs "src/${dir}/java"
+                scala.srcDirs "src/${dir}/scala"
                 res.srcDirs "src/${dir}/res"
             }
         }
