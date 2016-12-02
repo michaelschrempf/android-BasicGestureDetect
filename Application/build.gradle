@@ -50,6 +50,7 @@ android {
     sourceSets {
         main {
             dirs.each { dir ->
+                java.srcDirs "src/${dir}/java"
                 scala.srcDirs "src/${dir}/scala"
                 res.srcDirs "src/${dir}/res"
             }
