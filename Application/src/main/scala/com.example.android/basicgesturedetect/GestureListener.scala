@@ -25,6 +25,7 @@ object GestureListener {
   val TAG: String = "GestureListener"
 
   private def getTouchType(e: MotionEvent): String = {
+    breakable {
     var touchTypeDescription: String = " "
     val touchType: Int = e.getToolType(0)
     touchType match {
